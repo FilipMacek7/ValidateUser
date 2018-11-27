@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FluentValidation;
 
+
 namespace ValidateUser
 {
     public class CustomerValidator : AbstractValidator<CustomerBuilder>
@@ -12,15 +13,15 @@ namespace ValidateUser
         public CustomerValidator()
         {
             RuleFor(customer => customer.Surname)
-                .NotNull()
-                .NotEqual("foo");
+                .NotEmpty()
+                .WithMessage("Surname can't be empty");
 
             RuleFor(customer => customer.Forename)
-                 .NotNull()
-                 .NotEqual("foo");
-            RuleFor(customer => customer.BirthYear)
-                 .NotNull()
-                 .LessThan(2018);
+                .NotEmpty()
+                .WithMessage("Forename can't be empty");
+            RuleFor(customer => customer.BirthDate)
+                .NotNull()
+                 .NotEqual(DateTime.Now);
         }
 
     }

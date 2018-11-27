@@ -21,9 +21,9 @@
         <Label Content="Birth year" HorizontalAlignment="Left" Height="49" Margin="85,128,0,0" VerticalAlignment="Top" Width="216"/>
         <Label Content="Forename" HorizontalAlignment="Left" Height="49" Margin="85,79,0,0" VerticalAlignment="Top" Width="216"/>
         <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="34" Margin="10,30,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="178" Name="surname"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="34" Margin="10,132,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="178"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="34" Margin="10,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="34" Margin="10,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Name="forename"/>
+        <DatePicker Grid.Column="1" Margin="10,128,10,44" Name="date"></DatePicker>
         <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Height="72" Margin="42,79,0,0" VerticalAlignment="Top" Width="113" Click="Button_Click"/>
-        <TextBlock HorizontalAlignment="Left" Height="104" Grid.Row="1" TextWrapping="Wrap" Name="Error"  VerticalAlignment="Top" Width="396"/>
+        <TextBlock HorizontalAlignment="Left" Height="104" Grid.Row="1" TextWrapping="Wrap" Name="result"  VerticalAlignment="Top" Width="396"/>
     </Grid>
 </Window>

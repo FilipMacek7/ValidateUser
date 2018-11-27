@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace ValidateUser
 {
@@ -10,7 +11,7 @@ namespace ValidateUser
     {
         public string Surname { get; set; }
         public string Forename { get; set; }
-        public int BirthYear { get; set; }
+        public DateTime BirthDate { get; set; }
 
         public CustomerBuilder WithSurName(string surname)
         {
@@ -23,9 +24,9 @@ namespace ValidateUser
             this.Forename = forename;
             return this;
         }
-        public CustomerBuilder WithBirthYear(int birthyear)
+        public CustomerBuilder WithBirthDate(DateTime birthdate)
         {
-            this.BirthYear = birthyear;
+            this.BirthDate = birthdate;
             return this;
         }
     }

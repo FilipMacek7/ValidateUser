@@ -25,21 +25,45 @@ namespace ValidateUser
         {
             InitializeComponent();
         }
-
+        DatePicker datePicker = new DatePicker();
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             CustomerBuilder customer = new CustomerBuilder()
-                .WithSurName(surname.Text);
+                .WithSurName(surname.Text)
+                .WithForeName(forename.Text)        
+                .WithBirthDate(Convert.ToDateTime(datePicker.SelectedDate));
+
             CustomerValidator validator = new CustomerValidator();
 
             FluentValidation.Results.ValidationResult results = validator.Validate(customer);
+
 
             if (!results.IsValid)
             {
                 foreach (var failure in results.Errors)
                 {
-                    Error.Text = "Property " + failure.PropertyName + " failed validation. Error was: " + failure.ErrorMessage;
+                    result.Text = "Property " + failure.PropertyName + " failed validation. Error was: " + failure.ErrorMessage;
+                    if (failure.PropertyName == "Surname")
+                    {
+                        surname.Background = Brushes.Red;
+                    }
+                    else if (failure.PropertyName == "Forename")
+                    {
+                        forename.Background = Brushes.Red;
+                    }
+                    else if (failure.PropertyName == "Birthdate")
+                    {
+                        date.Background = Brushes.Red;
+                    }
                 }
+                
+            }
+            else if (results.IsValid)
+            {
+                result.Text = "You have been succefuly registred";
+                surname.ClearValue(TextBox.BorderBrushProperty);
+                forename.ClearValue(TextBox.BorderBrushProperty);
+                date.ClearValue(TextBox.BorderBrushProperty);
             }
         }
     }
